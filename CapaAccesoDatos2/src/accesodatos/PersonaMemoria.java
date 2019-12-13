@@ -15,6 +15,7 @@ public class PersonaMemoria implements Crudable<Persona> {
 	private PersonaMemoria() {
 		personas.put(1L, new Persona(1L, "Rodrigo", "Soto"));
 		personas.put(2L, new Persona(2L, "Juana", "de Arco"));
+		personas.put(3L, new Persona(3L, "Cara", "Portazo"));
 	}
 
 	private final static PersonaMemoria INSTANCIA = new PersonaMemoria();
@@ -32,8 +33,7 @@ public class PersonaMemoria implements Crudable<Persona> {
 
 	@Override
 	public Persona getById(Long id) {
-		//TODO Implementar getById
-		throw new AccesoDatosException("No está implementado");
+		return personas.get(id);
 	}
 
 	@Override
@@ -51,15 +51,13 @@ public class PersonaMemoria implements Crudable<Persona> {
 	@Override
 	public Persona delete(Persona persona) {
 		personas.remove(persona.getId(), persona);
-		return persona;
-		
+		return persona;		
 	}
 
 	@Override
 	public Persona delete(Long id) {
 		personas.remove(id);
-		return null;
-		
+		return null;		
 	}
 
 }
